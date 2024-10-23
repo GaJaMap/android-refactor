@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.pg.gajamap.presentation.group.GroupViewModel" />
+
+        <variable
+            name="item"
+            type="com.pg.gajamap.data.model.GroupEntity" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@{viewModel.currentGroupId() == item.groupId ? @color/inform : @color/white}">
+
+        <ImageView
+            android:id="@+id/iv_group"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_grouplist_circle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/nanumsquareneo_bold"
+            android:text="@{item.groupName}"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_group"
+            app:layout_constraintStart_toEndOf="@+id/iv_group"
+            app:layout_constraintTop_toTopOf="@id/iv_group" />
+
+        <TextView
+            android:id="@+id/tv_start_parenthesis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:fontFamily="@font/nanumsquareneo_regular"
+            android:text="("
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_group"
+            app:layout_constraintStart_toEndOf="@+id/tv_group"
+            app:layout_constraintTop_toTopOf="@id/iv_group" />
+
+        <TextView
+            android:id="@+id/tv_groupperson"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nanumsquareneo_regular"
+            android:text="@{Integer.toString(item.clientCount)}"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_group"
+            app:layout_constraintStart_toEndOf="@+id/tv_start_parenthesis"
+            app:layout_constraintTop_toTopOf="@id/iv_group" />
+
+        <TextView
+            android:id="@+id/tv_end_parenthesis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nanumsquareneo_regular"
+            android:text=")"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_group"
+            app:layout_constraintStart_toEndOf="@+id/tv_groupperson"
+            app:layout_constraintTop_toTopOf="@id/iv_group" />
+
+        <ImageView
+            android:id="@+id/iv_modify"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/ic_modify"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@id/iv_group"
+            app:layout_constraintEnd_toStartOf="@id/iv_delete"
+            app:layout_constraintTop_toTopOf="@id/iv_group" />
+
+        <ImageView
+            android:id="@+id/iv_delete"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/ic_delete"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@id/iv_group"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv_group" />
+
+        <LinearLayout
+            android:id="@+id/ll_grouplist"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/line"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_group" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fragment_add_bottom_background"
+    android:paddingBottom="16dp"
+    tools:context=".presentation.group.GroupSheetFragment">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_addgroup_address"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_address"
+        app:layout_constraintEnd_toStartOf="@id/tv_addgroup_main"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_addgroup_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/nanumsquareneo_bold"
+        android:text="전체"
+        android:textColor="@color/black"
+        android:textSize="19sp"
+        app:layout_constraintBottom_toBottomOf="@id/iv_addgroup_address"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv_addgroup_address"
+        app:layout_constraintTop_toTopOf="@id/iv_addgroup_address" />
+
+    <LinearLayout
+        android:id="@+id/ll_addgroup"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginVertical="8dp"
+        android:background="@color/line"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_addgroup_address" />
+
+    <TextView
+        android:id="@+id/tv_addgroup_inform"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/inform"
+        android:fontFamily="@font/nanumsquareneo_regular"
+        android:padding="4dp"
+        android:text="거래처 수를 터치하면 지도 페이지에 표시됩니다."
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_addgroup" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/group_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="228dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        android:overScrollMode="never"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_addgroup_inform" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_addgroup"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/fragment_add_bottom_purple"
+        android:fontFamily="@font/nanumsquareneo_bold"
+        android:gravity="center"
+        android:text="그룹 추가하기"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/group_recyclerview" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

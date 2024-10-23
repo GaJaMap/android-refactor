@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_map">
+
+    <fragment
+        android:id="@+id/navigation_customer"
+        android:name="com.pg.gajamap.presentation.client.CustomerFragment"
+        android:label="@string/title_customer"
+        tools:layout="@layout/fragment_customer">
+        <action
+            android:id="@+id/action_navigation_customer_to_groupSheetFragment"
+            app:destination="@id/groupSheetFragment" />
+        <action
+            android:id="@+id/action_navigation_customer_to_detailCustomerFragment"
+            app:destination="@id/detailCustomerFragment" />
+        <action
+            android:id="@+id/action_navigation_customer_to_customerEditFragment"
+            app:destination="@id/customerEditFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_map"
+        android:name="com.pg.gajamap.presentation.map.MapFragment"
+        android:label="@string/title_map"
+        tools:layout="@layout/fragment_map">
+        <action
+            android:id="@+id/action_navigation_map_to_groupSheetFragment"
+            app:destination="@id/groupSheetFragment" />
+        <action
+            android:id="@+id/action_navigation_map_to_addCustomerFragment"
+            app:destination="@id/addCustomerFragment" />
+        <action
+            android:id="@+id/action_navigation_map_to_detailCustomerFragment"
+            app:destination="@id/detailCustomerFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.pg.gajamap.presentation.settings.SettingsFragment"
+        android:label="@string/title_settings"
+        tools:layout="@layout/fragment_settings">
+        <action
+            android:id="@+id/action_navigation_settings_to_excelUploadFragment"
+            app:destination="@id/excelUploadFragment" />
+        <action
+            android:id="@+id/action_navigation_settings_to_kakaoUploadFragment"
+            app:destination="@id/kakaoUploadFragment" />
+        <action
+            android:id="@+id/action_navigation_settings_to_phoneUploadFragment"
+            app:destination="@id/phoneUploadFragment" />
+        <action
+            android:id="@+id/action_navigation_settings_to_userInfoFragment"
+            app:destination="@id/userInfoFragment" />
+        <action
+            android:id="@+id/action_navigation_settings_to_serviceInfoFragment"
+            app:destination="@id/serviceInfoFragment" />
+        <action
+            android:id="@+id/action_navigation_settings_to_locationInfoFragment"
+            app:destination="@id/locationInfoFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/groupSheetFragment"
+        android:name="com.pg.gajamap.presentation.group.GroupSheetFragment"
+        android:label="fragment_group_sheet"
+        tools:layout="@layout/fragment_group_sheet" />
+    <fragment
+        android:id="@+id/addCustomerFragment"
+        android:name="com.pg.gajamap.presentation.add.AddCustomerFragment"
+        android:label="fragment_customer_add"
+        tools:layout="@layout/fragment_customer_add">
+        <argument
+            android:name="addressInfo"
+            app:argType="com.pg.gajamap.data.model.AddressInfo" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailCustomerFragment"
+        android:name="com.pg.gajamap.presentation.detail.DetailCustomerFragment"
+        android:label="fragment_customer_detail"
+        tools:layout="@layout/fragment_customer_detail">
+        <argument
+            android:name="client"
+            app:argType="com.pg.gajamap.data.model.response.client.Client" />
+        <action
+            android:id="@+id/action_detailCustomerFragment_to_editDetailFragment"
+            app:destination="@id/editDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editDetailFragment"
+        android:name="com.pg.gajamap.presentation.detail.EditDetailFragment"
+        android:label="fragment_edit_detail"
+        tools:layout="@layout/fragment_edit_detail">
+        <argument
+            android:name="client"
+            app:argType="com.pg.gajamap.data.model.response.client.Client" />
+        <action
+            android:id="@+id/action_editDetailFragment_to_addressEditFragment"
+            app:destination="@id/addressEditFragment" />
+        <action
+            android:id="@+id/action_editDetailFragment_to_navigation_customer"
+            app:destination="@id/navigation_customer"
+            app:popUpTo="@id/navigation_customer"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/customerEditFragment"
+        android:name="com.pg.gajamap.presentation.client.CustomerEditFragment"
+        android:label="fragment_customer_edit"
+        tools:layout="@layout/fragment_customer_edit">
+        <argument
+            android:name="group"
+            app:argType="com.pg.gajamap.data.model.GroupState" />
+    </fragment>
+    <fragment
+        android:id="@+id/excelUploadFragment"
+        android:name="com.pg.gajamap.presentation.upload.ExcelUploadFragment"
+        android:label="fragment_excel_upload"
+        tools:layout="@layout/fragment_excel_upload" />
+    <fragment
+        android:id="@+id/kakaoUploadFragment"
+        android:name="com.pg.gajamap.presentation.upload.KakaoUploadFragment"
+        android:label="fragment_kakao_upload"
+        tools:layout="@layout/fragment_kakao_upload" />
+    <fragment
+        android:id="@+id/phoneUploadFragment"
+        android:name="com.pg.gajamap.presentation.upload.PhoneUploadFragment"
+        android:label="fragment_phone_upload"
+        tools:layout="@layout/fragment_phone_upload" />
+    <fragment
+        android:id="@+id/addressEditFragment"
+        android:name="com.pg.gajamap.presentation.address.AddressEditFragment"
+        android:label="fragment_edit_address"
+        tools:layout="@layout/fragment_edit_address">
+        <argument
+            android:name="client"
+            app:argType="com.pg.gajamap.data.model.response.client.Client" />
+        <action
+            android:id="@+id/action_addressEditFragment_to_editDetailFragment"
+            app:destination="@id/editDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/locationInfoFragment"
+        android:name="com.pg.gajamap.presentation.info.LocationInfoFragment"
+        android:label="fragment_location_info"
+        tools:layout="@layout/fragment_location_info" />
+    <fragment
+        android:id="@+id/serviceInfoFragment"
+        android:name="com.pg.gajamap.presentation.info.ServiceInfoFragment"
+        android:label="fragment_service_info"
+        tools:layout="@layout/fragment_service_info" />
+    <fragment
+        android:id="@+id/userInfoFragment"
+        android:name="com.pg.gajamap.presentation.info.UserInfoFragment"
+        android:label="fragment_user_info"
+        tools:layout="@layout/fragment_user_info" />
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.pg.gajamap.presentation.login.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
+</navigation>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_mappin"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginVertical="10dp"
+        android:layout_marginStart="12dp"
+        android:background="@drawable/ic_map_pin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="2dp"
+        android:fontFamily="@font/nanumsquareneo_bold"
+        android:text="경복궁"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_address"
+        app:layout_constraintStart_toEndOf="@+id/iv_mappin"
+        app:layout_constraintTop_toTopOf="@id/iv_mappin" />
+
+    <TextView
+        android:id="@+id/tv_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/nanumsquareneo_regular"
+        android:text="서울 종로구 사직로 161"
+        android:textColor="@color/location_address"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_mappin"
+        app:layout_constraintStart_toEndOf="@+id/iv_mappin"
+        app:layout_constraintTop_toBottomOf="@id/tv_name" />
+
+    <LinearLayout
+        android:id="@+id/ll_location_search"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/line"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_mappin" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_plus"
+        android:layout_width="64dp"
+        android:layout_height="28dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/fragment_add_bottom_purple"
+        android:fontFamily="@font/nanumsquareneo_bold"
+        android:text="추가"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

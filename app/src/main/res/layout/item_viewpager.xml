@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.pg.gajamap.data.model.response.client.Client" />
+
+        <variable
+            name="items"
+            type="String[]" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_card_profile"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:src="@drawable/profile_img_origin"
+            app:imageFilePath="@{item.image.filePath}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_card_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/nanumsquareneo_bold"
+            android:text="@{item.clientName}"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/iv_card_profile"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_card_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/nanumsquareneo_bold"
+            android:text="주소"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            app:layout_constraintStart_toEndOf="@+id/iv_card_profile"
+            app:layout_constraintTop_toBottomOf="@+id/tv_card_name" />
+
+        <TextView
+            android:id="@+id/tv_card_address_detail"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:fontFamily="@font/nanumsquareneo_regular"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:scrollHorizontally="true"
+            android:selected="@{true}"
+            android:singleLine="true"
+            android:text="@{item.address.mainAddress}"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_card_address"
+            app:layout_constraintStart_toEndOf="@+id/tv_card_address"
+            app:layout_constraintTop_toTopOf="@+id/tv_card_address" />
+
+        <TextView
+            android:id="@+id/tv_card_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="2dp"
+            android:fontFamily="@font/nanumsquareneo_bold"
+            android:text="연락처"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            app:layout_constraintStart_toEndOf="@+id/iv_card_profile"
+            app:layout_constraintTop_toBottomOf="@+id/tv_card_address" />
+
+        <TextView
+            android:id="@+id/tv_card_phone_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="13dp"
+            android:fontFamily="@font/nanumsquareneo_regular"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            app:formattedPhoneNumber="@{item.phoneNumber}"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_card_phone"
+            app:layout_constraintStart_toEndOf="@+id/tv_card_phone"
+            app:layout_constraintTop_toTopOf="@+id/tv_card_phone" />
+
+        <TextView
+            android:id="@+id/tv_card_distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/nanumsquareneo_bold"
+            android:text="@{item.distance == null ? &quot;-&quot; : String.format(&quot;%.1f&quot;, ((double)item.distance) / 1000.0)}"
+            android:textColor="@color/main"
+            android:textSize="13sp"
+            app:layout_constraintStart_toEndOf="@+id/iv_card_profile"
+            app:layout_constraintTop_toBottomOf="@+id/tv_card_phone" />
+
+        <TextView
+            android:id="@+id/tv_card_km"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nanumsquareneo_bold"
+            android:text="km"
+            android:textColor="@color/main"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@id/tv_card_distance"
+            app:layout_constraintStart_toEndOf="@+id/tv_card_distance"
+            app:layout_constraintTop_toTopOf="@id/tv_card_distance" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_card_carBtn"
+            android:layout_width="48dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="12dp"
+            android:background="@drawable/ic_item_car_background"
+            app:itemView="@{item}"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_card_km"
+            app:layout_constraintStart_toEndOf="@+id/tv_card_km"
+            app:layout_constraintTop_toTopOf="@+id/tv_card_km"
+            app:navItems="@{items}">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="2dp"
+                android:src="@drawable/ic_item_car"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_card_phoneBtn"
+            android:layout_width="48dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/ic_item_car_background"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_card_distance"
+            app:layout_constraintStart_toEndOf="@+id/cl_card_carBtn"
+            app:layout_constraintTop_toTopOf="@+id/tv_card_distance"
+            app:phoneNumber="@{item.phoneNumber}">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_item_phone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

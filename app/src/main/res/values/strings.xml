@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">가자맵</string>
+    <string name="title_customer">Customer</string>
+    <string name="title_map">Map</string>
+    <string name="title_settings">Settings</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="location_Info"><u>위치정보</u></string>
+    <string name="service_Info"><u> 서비스 이용 약관</u></string>
+    <string name="user_Info"><u>개인정보처리방침</u></string>
+</resources>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 선택되었을 때의 모양 -->
+    <item android:state_checked="true">
+        <shape android:shape="oval">
+            <corners android:radius="12dp" />
+            <solid android:color="@color/main" /> <!-- 보라색 -->
+            <padding android:bottom="8dp" android:left="8dp" android:right="8dp" android:top="8dp" />
+        </shape>
+    </item>
+
+    <!-- 선택되지 않았을 때의 모양 -->
+    <item>
+        <shape android:shape="oval">
+            <corners android:radius="12dp" />
+            <solid android:color="@color/white" /> <!-- 흰색 -->
+            <padding android:bottom="8dp" android:left="8dp" android:right="8dp" android:top="8dp" />
+        </shape>
+    </item>
+
+</selector>
