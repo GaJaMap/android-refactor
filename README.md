@@ -77,6 +77,6 @@
 - [Hilt](https://dagger.dev/hilt/)  
 - [Coil](https://coil-kt.github.io/coil/)  
 - [Retrofit](https://square.github.io/retrofit/)  
-- [Kakao Map SDK v2](https://developers.kakao.com/docs/latest/ko/maps/overview)  
+- [Kakao Map SDK v2](https://apis.map.kakao.com/android_v2/docs/)
 - [Flow](https://developer.android.com/kotlin/flow)  
 - [Coroutine](https://developer.android.com/kotlin/coroutines)  
